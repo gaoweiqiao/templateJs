@@ -12,7 +12,12 @@ function render(template,context){
         index = match.index + match[0].length;
         fragments.push(fragment);
         var value = context[key];
-        fragments.push(value);
+        if(undefined != value){
+            fragments.push(value);
+        }else {
+            fragments.push("0");
+        }
+
     }
     fragments.push(template.slice(index,template.length));
     return fragments.join("");
